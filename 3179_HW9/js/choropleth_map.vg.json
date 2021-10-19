@@ -4,7 +4,7 @@
   "width": 800,
   "height": 600,
   "data": {
-    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+    "url": "https://github.com/Mhar0027/FIT3179/blob/main/3179_HW9/data/covid_impact_on_airport_traffic.csv",
     "format": {
           "type": "topojson",
           "feature": "ne_110m_admin_0_countries"
@@ -14,7 +14,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/data/covid_10_10_2020.csv"
+          "url": "https://github.com/Mhar0027/FIT3179/blob/main/3179_HW9/data/covid_impact_on_airport_traffic.csv"
         },
         "key": "Country",
         "fields": ["Active"]
