@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Statistics of Malaysian States",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/Mhar0027/FIT3179/main/29627796_Vis2/js/Malaysia.json",
+    "format": {
+          "type": "topojson",
+          "feature": "Malaysia"
+        }
+  },
+  "transform": [{
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/Mhar0027/FIT3179/main/29627796_Vis2/data/states_info.csv",
+          "format": {
+            "type": "csv",
+            "parse":{"Population":"string"}
+          }
+        },
+        "key": "Name",
+        "fields": ["Capital", "Population","Area (km²)","Population Density","License plate prefix","Phone area code","Largest Metropolitan","ISO","FIPS"]
+      }
+    },
+    {"calculate": "datum.Population", "as": "Population"}
+  ],
+  "projection": {
+    "type": "equirectangular"
+  },
+  "mark": {
+    "type": "geoshape"
+    },
+  "encoding": {
+    "color": {
+      "field": "properties.name",
+      "type": "nominal",
+      "scale": {"type": "ordinal"},
+      "title": "State Name"
+    },
+    "tooltip": [{"field": "properties.name", "type": "nominal", "title": "State Name"},
+      {"field": "Capital", "type": "nominal", "title": "State Capital"},
+      {"field": "Population", "type": "nominal"},
+      {"field": "License plate prefix", "type": "nominal"},
+      {"field": "Phone area code", "type": "nominal"},
+      {"field": "Largest Metropolitan", "type": "nominal"},
+      {"field": "ISO", "type": "nominal"},
+      {"field": "FIPS", "type": "nominal"}
+
+    ]
+  }
+
+}

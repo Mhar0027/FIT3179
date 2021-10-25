@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Population Density by State",
+    "width": 800,
+    "height": 600,
+    "data": {
+      "url": "https://raw.githubusercontent.com/Mhar0027/FIT3179/main/29627796_Vis2/js/Malaysia.json",
+      "format": {
+            "type": "topojson",
+            "feature": "Malaysia"
+          }
+    },
+    "transform": [{
+        "lookup": "properties.name",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/Mhar0027/FIT3179/main/Malaysia_population_state.csv",
+            "format": {
+              "type": "csv"
+            }
+          },
+          "key": "StateName",
+          "fields": ["StateID","StateName","PopulationDensity","Area"]
+        }
+      }
+    ],
+    "projection": {
+      "type": "equirectangular"
+    },
+    "mark": {
+      "type": "geoshape"
+      },
+    "encoding": {
+      "color": {
+        "field": "Area",
+        "type": "quantitative"
+      },
+      "tooltip": [
+         {"field": "Area", "type": "quantitative"},
+        {"field": "PopulationDensity", "type": "quantitative"}
+      ]
+    }
+  
+  }
