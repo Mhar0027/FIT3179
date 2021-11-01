@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Vega Lite embedding-->
+<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+<!--Links for CSS import-->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4{
+        font-family: "Times New Roman", sans-serif
+    }
+
+    .w3-bar,
+    h1,
+    button {
+        font-family: "Arial Black", sans-serif
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+        font-size: 200px
+    }
+
+</style>
+
+<script>
+    //map 1 geomap
+    var vg_1 = "js/MalaysiaPpln.json";
+    vegaEmbed("#map_1", vg_1).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view 
+    }).catch(console.error);
+
+    //map 2 stack bar chart
+    var vg_2 = "js/density.json";
+    vegaEmbed("#map_2", vg_2).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view 
+    }).catch(console.error);
+
+    //map 3 some chart lol
+    var vg_3 = "js/totalcases.json";
+    vegaEmbed("#map_3", vg_3).then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view 
+    }).catch(console.error);
+</script>
+
+<body>
+    <!-- Header -->
+    <header class="w3-container w3-center" style="padding:128px 16px">
+        <!-- <div class="w3-container w3-black w3-center"> -->
+        <div class="w3-container w3-black" style="margin-left: auto; margin-right: auto">
+            <h1 class="w3-margin w3-jumbo">Statistics Of Malaysian States w/ COVID-19 Data
+            </h1>
+            <p class="w3-xlarge">Visualisations By Mikhail Haris</p>
+        </div>
+    </header>
+
+    <!-- First Chart -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-third">
+                <h2></h2>
+
+                <p class="w3-text-grey">The map outlines the population per state of 
+                    all Malaysian states. There is clearly a larger outline of population
+                    influx in Western Malaysia states instead of East Malaysia. Despite larger
+                    area density of some states, the population count varies throughout different 
+                    states due to social, economic and developmental reasons.
+                </p>
+            </div>
+
+            <div class="w3-twothird">
+                <!--graph-->
+                <div id="map_1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second  Chart -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-third">
+                <h2></h2>
+
+                <p class="w3-text-grey">The map outlines the population density per state of 
+                    all Malaysian states as well as the area(squared km) of each outlined state.
+                    Despite the Eastern Malaysian states having a larger buildup area, the population density
+                    is still significantly higher in states located in West Malaysia.
+                </p>
+            </div>
+
+            <div class="w3-twothird">
+                <!--graph-->
+                <div id="map_2"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Third Chart -->
+    <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+            <div class="w3-third">
+                <h2>Number of New Daily Cases from 2020-2021</h2>
+
+                <p class="w3-text-grey">The bar chart displays the number of new cases daily 
+                    throughout Malaysia. A tooltip indicates the date, number of new deaths and total deaths.
+                    The use of a diverging color for the legend allows viewers to easily tell the increase
+                    or decreases in new daily cases.
+                </p>
+            </div>
+
+            <div class="w3-twothird">
+                <!--graph-->
+                <div id="map_3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+        <h1 class="w3-margin w3-xlarge">Kita Jaga Kita</h1>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+        <h4>References</h4>
+        <div>
+            <p>1. Malaysia COVID-19 Data Analysis. Obtained 22/10/2021 from </p>
+            <a href="https://www.kaggle.com/deivashreeselvarajoo/covid19-malaysia-data-analysis"
+                target="_blank">https://www.kaggle.com/deivashreeselvarajoo/covid19-malaysia-data-analysis</a>
+        </div>
+
+        <div>
+            <p>2. Malaysia State Statistics. Obtained 22/10/2021 from </p>
+            <a href="https://www.kaggle.com/obasna/malaysia-population-state"
+                target="_blank">https://www.kaggle.com/obasna/malaysia-population-state</a>
+        </div>
+
+        <div>
+            <p>3. W3.CSS Templates. (2021). Obtained 22 October 2021, from </p>
+            <a href="https://www.w3schools.com/w3css/w3css_templates.asp" target="_blank">
+                https://www.w3schools.com/w3css/w3css_templates.asp</a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
