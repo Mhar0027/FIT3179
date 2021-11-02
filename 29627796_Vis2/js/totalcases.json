@@ -1,33 +1,30 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 600,
-  "data": {
-    "url": "https://raw.githubusercontent.com/Mhar0027/FIT3179/main/29627796_Vis2/Covid-19%20Malaysia%20Data.csv"
-  },
+  "width": 1050,
+  "height": 1000,
+  "data": {"url": "https://raw.githubusercontent.com/Mhar0027/FIT3179/main/29627796_Vis2/data/Covid-19%20Malaysia%20Data.csv"},
   "mark": {"type": "bar", "tooltip": "true"},
-  "encoding": {
-    "color": {"field": "new_cases", "type": "quantitative", "title":"New Cases"},
+  "encoding": {"color": {
+        "field": "new_cases",
+        "type": "quantitative"
+      },
     "y": {
       "title": "Date",
       "field": "date",
-      "timeUnit": "month",
+      "timeUnit":"month",
       "type": "nominal",
-      "sort": "ascending"
+      "sort":"ascending"
     },
     "x": {
       "title": "Cases",
-      "aggregate": "sum",
+      "aggregate":"max",
       "field": "new_cases",
       "type": "quantitative",
-      "sort": "ascending"
+      "sort":"ascending"
     },
-    "tooltip": [
-      {"field": "date", "timeUnit": "yearmonthdate", "type": "temporal"},
-      {"field": "new_cases", "type": "quantitative"},
+    "tooltip": [{"field": "date", "timeUnit":"yearmonthdate","type": "temporal"},{"field": "new_cases", "type": "quantitative"},
       {"field": "new_deaths", "type": "quantitative"},
       {"field": "total_deaths", "type": "quantitative"}
-    ]
-  },
-  "config": {}
+
+    ]}
 }
